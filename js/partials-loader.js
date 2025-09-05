@@ -1,12 +1,10 @@
-// js/partials-loader.js
+// js/partials-loader.js (opsional)
 async function includePartials() {
   const nodes = document.querySelectorAll("[data-include]");
   await Promise.all(
     [...nodes].map(async (el) => {
-      // normalisasi: kalau path diawali "/", ubah jadi "./"
       const raw = el.getAttribute("data-include") || "";
-      const url = raw.startsWith("/") ? "." + raw : raw;
-
+      const url = raw.startsWith("/") ? "." + raw : raw; // <- normalisasi
       try {
         const res = await fetch(url, { cache: "no-store" });
         if (!res.ok) throw new Error(res.status + " " + res.statusText);
@@ -17,7 +15,6 @@ async function includePartials() {
       }
     })
   );
-  //
   document.dispatchEvent(new Event("partials:loaded"));
 }
 document.addEventListener("DOMContentLoaded", includePartials);
