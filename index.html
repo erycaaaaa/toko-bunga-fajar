@@ -1,110 +1,239 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Toko Bunga Fajar Aster PT</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toko Bunga Fajar Aster PT</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/logo3-Photoroom.png" />
-  <link rel="apple-touch-icon" href="./assets/logo-skrg.svg" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/logo3-Photoroom.png" />
+    <link rel="apple-touch-icon" href="./assets/logo-skrg.svg" />
 
-  <!-- CSS kamu -->
-  <link rel="stylesheet" href="./css/style.css" />
-</head>
-<body>
-  <!-- Partial: Navbar -->
-  <header data-include="./partials/navbar.html"></header>
+    <!-- CSS kamu -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Partial: Navbar -->
+    <header data-include="./partials/navbar.html"></header>
 
-  <main>
-    <div data-include="./partials/cursor.html"></div>
-    <div data-include="./partials/category.html"></div>
-    <div data-include="./partials/hero.html"></div>
-    <div data-include="./partials/shopby.html"></div>
+    <main>
+      <div data-include="./partials/cursor.html"></div>
+      <div data-include="./partials/category.html"></div>
+      <div data-include="./partials/hero.html"></div>
+      <div data-include="./partials/shopby.html"></div>
 
-    <div data-include="./partials/pair-carousel.html"></div>
-    <div data-include="./partials/cta-strip.html"></div>
-    <div data-include="./partials/floating-help.html"></div>
-    <div data-include="./partials/testimonials.html"></div>
+      <div data-include="./partials/pair-carousel.html"></div>
+      <div data-include="./partials/cta-strip.html"></div>
+      <div data-include="./partials/floating-help.html"></div>
+      <div data-include="./partials/testimonials.html"></div>
+      <section
+        class="hero parallax"
+        id="home"
+        aria-label="Headline & promosi utama"
+      >
+        <picture class="logo-landingpage" aria-hidden="true">
+          <img
+            src="../assets/logo-baru.png"
+            alt=""
+            width="300"
+            height="300"
+            decoding="async"
+          />
+        </picture>
 
-<section class="features py-5" id="produk" aria-labelledby="judul-produk">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-12 text-center mb-2" id="judul-produk-banner">
-        <h2 class="fw-bold" id="judul-produk">Pilihan Terpopuler</h2>
-      </div>
+        <div class="hero-content container text-center">
+          <span class="badge-soft">Fresh • Handmade • Same-day</span>
+          <h1 class="display-5 display-title mt-3">
+            Buket & Rangkaian Bunga <br class="d-none d-md-block" />Untuk Setiap
+            Momen
+          </h1>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-        <div class="col">
-          <div class="card h-100 p-3">
-            <img src="./assets/buket-bunga_RoseBuket_besar_5000000.jpg"
-                 class="card-img-top" alt="Bunga Papan" loading="lazy" decoding="async"
-                 style="height:170px; object-fit:cover"/>
-            <div class="card-body text-center" style="box-shadow:0 2px 4px rgba(0,0,0,.4)">
-              <h5 class="card-title" style="font-family:'Times New Roman', serif">Bunga Papan</h5>
+          <div class="d-flex gap-2 justify-content-center mb-4">
+            <a class="btn btn-hero-soft" href="#produk">Lihat Katalog</a>
+          </div>
+
+          <nav
+            class="d-flex gap-3 justify-content-center hero-social"
+            aria-label="Media sosial"
+          >
+            <a
+              style="font-size: 45px"
+              href="https://www.instagram.com/fajarependi80?utm_source=ig_web_button_share_sheet"
+              target="_blank"
+              rel="noopener"
+              class="text-white"
+              aria-label="Instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a
+              style="font-size: 45px"
+              href="https://www.tiktok.com/@fajar281224?is_from_webapp=1&sender_device=pc"
+              target="_blank"
+              rel="noopener"
+              class="text-white"
+              aria-label="TikTok"
+              ><i class="bi bi-tiktok"></i
+            ></a>
+            <a
+              style="font-size: 45px"
+              href="https://wa.me/6285798526834"
+              target="_blank"
+              rel="noopener"
+              class="text-white"
+              aria-label="WhatsApp"
+              ><i class="bi bi-whatsapp"></i
+            ></a>
+            <a
+              style="font-size: 45px"
+              href="https://www.waze.com/en/live-map/directions/pasar-bunga-rawa-belong-sulaiman-50-jakarta-barat?place=w.69994186.699810787.1423145"
+              target="_blank"
+              rel="noopener"
+              class="text-white"
+              aria-label="Lokasi"
+              ><i class="bi bi-geo-alt-fill"></i
+            ></a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="features py-5" id="produk" aria-labelledby="judul-produk">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-12 text-center mb-2" id="judul-produk-banner">
+              <h2 class="fw-bold" id="judul-produk">Pilihan Terpopuler</h2>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+              <div class="col">
+                <div class="card h-100 p-3">
+                  <img
+                    src="./assets/buket-bunga_RoseBuket_besar_5000000.jpg"
+                    class="card-img-top"
+                    alt="Bunga Papan"
+                    loading="lazy"
+                    decoding="async"
+                    style="height: 170px; object-fit: cover"
+                  />
+                  <div
+                    class="card-body text-center"
+                    style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4)"
+                  >
+                    <h5
+                      class="card-title"
+                      style="font-family: 'Times New Roman', serif"
+                    >
+                      Bunga Papan
+                    </h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="card h-100 p-3">
+                  <img
+                    src="./assets/buket-bunga_BigWhiteLily_besar_6000000.jpg"
+                    class="card-img-top"
+                    alt="Bunga Tangan"
+                    loading="lazy"
+                    decoding="async"
+                    style="height: 170px; object-fit: cover"
+                  />
+                  <div
+                    class="card-body text-center"
+                    style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4)"
+                  >
+                    <h5
+                      class="card-title"
+                      style="font-family: 'Times New Roman', serif"
+                    >
+                      Bunga Tangan
+                    </h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="card h-100 p-3">
+                  <img
+                    src="./assets/buket-bunga_LilyRose_besar_5000000.jpg"
+                    class="card-img-top"
+                    alt="Buket Bunga"
+                    loading="lazy"
+                    decoding="async"
+                    style="height: 170px; object-fit: cover"
+                  />
+                  <div
+                    class="card-body text-center"
+                    style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4)"
+                  >
+                    <h5
+                      class="card-title"
+                      style="font-family: 'Times New Roman', serif"
+                    >
+                      Buket Bunga
+                    </h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="card h-100 p-3">
+                  <img
+                    src="./assets/buket-bunga_RedRose_besar_7000000.jpg"
+                    class="card-img-top"
+                    alt="Bunga"
+                    loading="lazy"
+                    decoding="async"
+                    style="height: 170px; object-fit: cover"
+                  />
+                  <div
+                    class="card-body text-center"
+                    style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4)"
+                  >
+                    <h5
+                      class="card-title"
+                      style="font-family: 'Times New Roman', serif"
+                    >
+                      Bunga
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /row grid -->
+
+            <div class="col-12 text-center mt-4">
+              <a href="./katalog.html" class="btn btn-hero-soft"
+                >Lihat Lebih Banyak</a
+              >
             </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <div class="col">
-          <div class="card h-100 p-3">
-            <img src="./assets/buket-bunga_BigWhiteLily_besar_6000000.jpg"
-                 class="card-img-top" alt="Bunga Tangan" loading="lazy" decoding="async"
-                 style="height:170px; object-fit:cover"/>
-            <div class="card-body text-center" style="box-shadow:0 2px 4px rgba(0,0,0,.4)">
-              <h5 class="card-title" style="font-family:'Times New Roman', serif">Bunga Tangan</h5>
-            </div>
-          </div>
-        </div>
+    <!-- Partial: Footer -->
+    <footer data-include="./partials/footer.html"></footer>
 
-        <div class="col">
-          <div class="card h-100 p-3">
-            <img src="./assets/buket-bunga_LilyRose_besar_5000000.jpg"
-                 class="card-img-top" alt="Buket Bunga" loading="lazy" decoding="async"
-                 style="height:170px; object-fit:cover"/>
-            <div class="card-body text-center" style="box-shadow:0 2px 4px rgba(0,0,0,.4)">
-              <h5 class="card-title" style="font-family:'Times New Roman', serif">Buket Bunga</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card h-100 p-3">
-            <img src="./assets/buket-bunga_RedRose_besar_7000000.jpg"
-                 class="card-img-top" alt="Bunga" loading="lazy" decoding="async"
-                 style="height:170px; object-fit:cover"/>
-            <div class="card-body text-center" style="box-shadow:0 2px 4px rgba(0,0,0,.4)">
-              <h5 class="card-title" style="font-family:'Times New Roman', serif">Bunga</h5>
-            </div>
-          </div>
-        </div>
-      </div><!-- /row grid -->
-
-      <div class="col-12 text-center mt-4">
-        <a href="./katalog.html" class="btn btn-hero-soft">Lihat Lebih Banyak</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-  </main>
-
-  <!-- Partial: Footer -->
-  <footer data-include="./partials/footer.html"></footer>
-
-  <!-- JS -->
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script defer src="./js/partials-loader.js"></script>
-  <script defer src="./js/script.js"></script>
-  <script defer src="./js/filter.js"></script>
-  <script defer src="./js/catalog.js"></script>
-</body>
+    <!-- JS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script defer src="./js/partials-loader.js"></script>
+    <script defer src="./js/script.js"></script>
+    <script defer src="./js/filter.js"></script>
+    <script defer src="./js/catalog.js"></script>
+  </body>
 </html>
