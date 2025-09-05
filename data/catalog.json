@@ -4,25 +4,25 @@
 
   { "id": "BB-002", "name": "White Daisy Bouquest", "category": "buket-bunga", "size": "sedang","color":"putih", "price": 150000, "img": "assets/buket-bunga_WhiteDaisyBouquet_sedang_150000.jpg" },
   { "id": "BB-002", "name": "Red Rose Bouquest", "category": "buket-bunga", "size": "sedang","color":"merah", "price": 150000, "img": "assets/buket-bunga_RedRoseBouquet_sedang_150000.jpg" },
-  { "id": "BB-002", "name": "Lilium Bouquest", "category": "buket-bunga", "size": "sedang", "color":"pink", "price": 150000, "img": "assets/buket-bunga_PurpleLilium_sedang_150000.jpg" },
+  { "id": "BB-002", "name": "Lilium Bouquest", "category": "buket-bunga", "size": "sedang", "color":"unggu", "price": 150000, "img": "assets/buket-bunga_PurpleLilium_sedang_150000.jpg" },
   { "id": "BB-002", "name": "Mawar Bouquest", "category": "buket-bunga", "size": "sedang", "color":"merah,putih", "price": 200000, "img": "assets/buket-bunga_Rose_sedang_200000.jpg" },
   { "id": "BB-002", "name": "Pink LyRose", "category": "buket-bunga", "size": "sedang","color":"pink", "price": 250000, "img": "assets/buket-bunga_PinkRose_sedang_250000.jpg" },
   { "id": "BB-002", "name": "Red Rose", "category": "buket-bunga", "size": "sedang","color":"merah", "price": 270000, "img": "assets/buket-bunga_RedRose_sedang_270000.jpg" },
   { "id": "BB-002", "name": "Pinky Rose", "category": "buket-bunga", "size": "sedang","color":"pink", "price": 300000, "img": "assets/buket-bunga_PinkyRose_sedang_300000.jpg" },
   { "id": "BB-002", "name": "Sun Flower", "category": "buket-bunga", "size": "sedang","color":"orange", "price": 260000, "img": "assets/buket-bunga_SunFlowers_sedang_260000.jpg" },
-  { "id": "BB-002", "name": "Gardeni Flower", "category": "buket-bunga", "size": "sedang","color":"orange,merah", "price": 250000, "img": "assets/buket-bunga_GardeniFlower_sedang_250000.jpg" },
+  { "id": "BB-002", "name": "Gardeni Flower", "category": "buket-bunga", "size": "sedang","color":"merah", "price": 250000, "img": "assets/buket-bunga_GardeniFlower_sedang_250000.jpg" },
 
 
   { "id": "BB-003", "name": "Mawar Merah Premium", "category": "buket-bunga", "size": "besar", "color":"merah", "price": 300000, "img": "assets/buket-bunga_RedRoseBuket_besar_3000000.jpg" },
   { "id": "BB-003", "name": "Pinky Mawar Premium", "category": "buket-bunga", "size": "besar", "color":"pink", "price": 600000, "img": "assets/buket-bunga_PinkRoseBuket_besar_6000000.jpg" },
   { "id": "BB-003", "name": "Mawar Pastel Premium", "category": "buket-bunga", "size": "besar", "color":"pink", "price": 500000, "img": "assets/buket-bunga_RoseBuket_besar_5000000.jpg" },
-  { "id": "BB-003", "name": "Mawar Putih Pastel Premium", "category": "buket-bunga", "size": "besar", "color":"pink", "price": 470000, "img": "assets/buket-bunga_WhiteRoseBuket_besar_4700000.jpg" },
-  { "id": "BB-003", "name": "White Lily Premium", "category": "buket-bunga", "size": "besar", "color":"pink", "price": 600000, "img": "assets/buket-bunga_BigWhiteLily_besar_6000000.jpg" },
+  { "id": "BB-003", "name": "Mawar Putih Pastel Premium", "category": "buket-bunga", "size": "besar", "color":"pink,putih", "price": 470000, "img": "assets/buket-bunga_WhiteRoseBuket_besar_4700000.jpg" },
+  { "id": "BB-003", "name": "White Lily Premium", "category": "buket-bunga", "size": "besar", "color":"putih", "price": 600000, "img": "assets/buket-bunga_BigWhiteLily_besar_6000000.jpg" },
   { "id": "BB-003", "name": "BigDaisy Premium", "category": "buket-bunga", "size": "besar", "color":"pink", "price": 200000, "img": "/assets/buket-bunga_BigDaisy_besar_2000000.jpg" },
   { "id": "BB-003", "name": "Mawar Pink Premium", "category": "buket-bunga", "size": "besar", "color":"pink", "price": 700000, "img": "/assets/buket-bunga_PinkyRose_besar_7000000.jpg" },
-  { "id": "BB-003", "name": "Mawar Merah Premium", "category": "buket-bunga", "size": "besar",  "color":"pink", "price": 700000, "img": "/assets/buket-bunga_RedRose_besar_7000000.jpg" },
+  { "id": "BB-003", "name": "Mawar Merah Premium", "category": "buket-bunga", "size": "besar",  "color":"merah", "price": 700000, "img": "/assets/buket-bunga_RedRose_besar_7000000.jpg" },
   { "id": "BB-003", "name": "Mawar Soft Premium", "category": "buket-bunga", "size": "besar", "color":"pink", "price": 500000, "img": "/assets/buket-bunga_SoftRose_besar_5000000.jpg" },
-  { "id": "BB-003", "name": "Lily Mawar Premium", "category": "buket-bunga", "size": "besar", "color":"pink", "price": 500000, "img": "/assets/buket-bunga_LilyRose_besar_5000000.jpg" },
+  { "id": "BB-003", "name": "Lily Mawar Premium", "category": "buket-bunga", "size": "besar", "color":"merah,pink", "price": 500000, "img": "/assets/buket-bunga_LilyRose_besar_5000000.jpg" },
   
   { "id": "BT-001", "name": "Rose Hand-Tied","category": "bunga-tangan", "size": "sedang",  "color":"putih",  "price": 240000, "img": "assets/bunga-tangan_bungantangan_240000.jpg" },
   
