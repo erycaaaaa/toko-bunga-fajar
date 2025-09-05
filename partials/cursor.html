@@ -1,0 +1,10 @@
+<div id="cursor"></div>
+<style>
+  html,body{ cursor:none; }
+  #cursor{
+    position:fixed; width:60px; height:60px; pointer-events:none; z-index:9999;
+    border-radius:50%; transform:translate(-50%,-50%);
+    background: rgba(254,255,255,.5) url("./assets/cursor.gif") no-repeat center/contain;
+  }
+  @media (pointer:coarse){ html,body{ cursor:auto; } #cursor{ display:none; } }
+</style>
