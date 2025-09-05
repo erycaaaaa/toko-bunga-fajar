@@ -13,86 +13,81 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="image/svg+xml" href="assets/logo-skrg.svg" />
+    <!-- path dibuat relatif -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="./assets/logo-skrg.svg" />
   </head>
   <body>
     <!-- Navbar -->
-    <header data-include="partials/navbar.html"></header>
-      <div data-include="partials/category.html"></div>
+    <header data-include="./partials/navbar.html"></header>
+    <div data-include="./partials/category.html"></div>
    
-  <main class="container py-5">
-  <h1 class="h4 mb-3">Katalog Bunga</h1>
+    <main class="container py-5">
+      <h1 class="h4 mb-3">Katalog Bunga</h1>
 
-  <!-- FILTER BAR (Dropdown) -->
-  <div class="d-flex align-items-center gap-2 filterbar flex-wrap">
+      <!-- FILTER BAR (Dropdown) -->
+      <div class="d-flex align-items-center gap-2 filterbar flex-wrap">
+        <!-- Kategori -->
+        <div class="dropdown filter-dd" id="ddCategoryWrap">
+          <button class="btn btn-filter dropdown-toggle" type="button"
+                  id="ddCategoryBtn" data-bs-toggle="dropdown" aria-expanded="false">
+            Kategori: <span id="ddCategoryLabel">Semua</span>
+          </button>
+          <ul class="dropdown-menu" id="ddCategoryMenu" aria-labelledby="ddCategoryBtn">
+            <li><a class="dropdown-item" href="#" data-category="all">Semua</a></li>
+            <li><a class="dropdown-item" href="#" data-category="buket-bunga">Buket Bunga</a></li>
+            <li><a class="dropdown-item" href="#" data-category="bunga-tangkai">Bunga Tangkai</a></li>
+            <li><a class="dropdown-item" href="#" data-category="bunga-tangan">Bunga Tangan</a></li>
+            <li><a class="dropdown-item" href="#" data-category="bunga-papan">Bunga Papan</a></li>
+          </ul>
+        </div>
 
-    <!-- Kategori -->
-    <div class="dropdown filter-dd" id="ddCategoryWrap">
-      <button class="btn btn-filter dropdown-toggle" type="button"
-              id="ddCategoryBtn" data-bs-toggle="dropdown" aria-expanded="false">
-        Kategori: <span id="ddCategoryLabel">Semua</span>
-      </button>
-      <ul class="dropdown-menu" id="ddCategoryMenu" aria-labelledby="ddCategoryBtn">
-        <li><a class="dropdown-item" href="#" data-category="all">Semua</a></li>
-        <li><a class="dropdown-item" href="#" data-category="buket-bunga">Buket Bunga</a></li>
-        <li><a class="dropdown-item" href="#" data-category="bunga-tangkai">Bunga Tangkai</a></li>
-        <li><a class="dropdown-item" href="#" data-category="bunga-tangan">Bunga Tangan</a></li>
-        <li><a class="dropdown-item" href="#" data-category="bunga-papan">Bunga Papan</a></li>
-      </ul>
-    </div>
+        <!-- Ukuran (muncul hanya utk Buket Bunga) -->
+        <div class="dropdown filter-dd" id="ddSizeWrap" style="display:none">
+          <button class="btn btn-filter dropdown-toggle" type="button"
+                  id="ddSizeBtn" data-bs-toggle="dropdown" aria-expanded="false">
+            Ukuran: <span id="ddSizeLabel">Semua</span>
+          </button>
+          <ul class="dropdown-menu" id="ddSizeMenu" aria-labelledby="ddSizeBtn">
+            <li><a class="dropdown-item" href="#" data-size="all">Semua</a></li>
+            <li><a class="dropdown-item" href="#" data-size="kecil">Kecil</a></li>
+            <li><a class="dropdown-item" href="#" data-size="sedang">Sedang</a></li>
+            <li><a class="dropdown-item" href="#" data-size="besar">Besar</a></li>
+          </ul>
+        </div>
 
-    <!-- Ukuran (muncul hanya utk Buket Bunga) -->
-    <div class="dropdown filter-dd" id="ddSizeWrap" style="display:none">
-      <button class="btn btn-filter dropdown-toggle" type="button"
-              id="ddSizeBtn" data-bs-toggle="dropdown" aria-expanded="false">
-        Ukuran: <span id="ddSizeLabel">Semua</span>
-      </button>
-      <ul class="dropdown-menu" id="ddSizeMenu" aria-labelledby="ddSizeBtn">
-        <li><a class="dropdown-item" href="#" data-size="all">Semua</a></li>
-        <li><a class="dropdown-item" href="#" data-size="kecil">Kecil</a></li>
-        <li><a class="dropdown-item" href="#" data-size="sedang">Sedang</a></li>
-        <li><a class="dropdown-item" href="#" data-size="besar">Besar</a></li>
-      </ul>
-    </div>
-
-    <!-- Warna (multi; muncul hanya utk Buket Bunga) -->
-    <div class="dropdown filter-dd" id="ddColorWrap" style="display:none" data-bs-auto-close="outside">
-      <button class="btn btn-filter dropdown-toggle" type="button"
-              id="ddColorBtn" data-bs-toggle="dropdown" aria-expanded="false">
-        Warna: <span id="ddColorLabel">Semua</span>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="ddColorBtn" style="min-width:240px;">
-        <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="merah">Merah</label>
-        <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="pink">Pink</label>
-        <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="putih">Putih</label>
-        <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="jingga">Jingga</label>
-        <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="kuning">Kuning</label>
-        <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="hijau">Hijau</label>
-        <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="biru">Biru</label>
-        <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="ungu">Ungu</label>
-        <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="hitam">Hitam</label>
+        <!-- Warna (multi; muncul hanya utk Buket Bunga) -->
+        <div class="dropdown filter-dd" id="ddColorWrap" style="display:none" data-bs-auto-close="outside">
+          <button class="btn btn-filter dropdown-toggle" type="button"
+                  id="ddColorBtn" data-bs-toggle="dropdown" aria-expanded="false">
+            Warna: <span id="ddColorLabel">Semua</span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="ddColorBtn" style="min-width:240px;">
+            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="merah">Merah</label>
+            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="pink">Pink</label>
+            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="putih">Putih</label>
+            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="jingga">Jingga</label>
+            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="kuning">Kuning</label>
+            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="hijau">Hijau</label>
+            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="biru">Biru</label>
+            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="ungu">Ungu</label>
+            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="hitam">Hitam</label>
+          </div>
+        </div>
       </div>
-    </div>
 
-  </div>
+      <!-- GRID -->
+      <div class="row g-3 mt-3" id="catalogGrid"></div>
+    </main>
 
-  <!-- GRID -->
-  <div class="row g-3 mt-3" id="catalogGrid"></div>
-</main>
-
-
-    
-    <div data-include="partials/cta-strip.html"></div>
+    <div data-include="./partials/cta-strip.html"></div>
     <!-- Footer -->
-    <footer data-include="partials/footer.html"></footer>
+    <footer id="footer" data-include="./partials/footer.html"></footer>
 
-  <!-- JS order WAJIB -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script defer src="js/partials-loader.js"></script>
-<script defer src="js/catalog.js"></script>
-<script defer src="js/filter.js"></script>
-
-    <!-- JS render + filter -->
+    <!-- JS order WAJIB -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="./js/partials-loader.js"></script>
+    <script defer src="./js/catalog.js"></script>
+    <script defer src="./js/filter.js"></script>
   </body>
 </html>
