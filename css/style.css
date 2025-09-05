@@ -323,7 +323,7 @@
 
 /* ===== CTA STRIP ===== */
 .cta-strip {
-  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  background: #9bb8d7a2;
   color: #fff;
   border-radius: 20px 20px 0 0; /* Atas kiri & kanan rounded, bawah tidak */
 }
@@ -418,7 +418,7 @@ body {
 }
 
 #judul-produk-banner {
-  background: linear-gradient(90deg, #ffffff, #175e8592, #ffffff);
+  background: linear-gradient(90deg, #ffffff, #9bb8d7a2, #ffffff);
   /*warnagradasi*/
   color: white;
   /*teksputihbiarkontras*/
@@ -740,22 +740,22 @@ body {
     inset 0 0 0 1px rgba(0, 0, 0, 0.06);
   background-color: #f8f9fa;
 }
+
 .text-primary-light {
   color: #5a9fbb !important; /* Sky blue */
 }
 
 .section-bordered {
-  border-top: 50px solid #1869c04e;
-  border-bottom: 50px solid #eee;
+  border-top: 50px solid #9bb8d7a2;
+  border-bottom: 50px solid #9bb8d7a2;
 }
 
 .bg-florist {
   background: linear-gradient(
       180deg,
-      rgba(211, 242, 255, 0.8) 0%,
       rgba(255, 255, 255, 0.8) 100%
     ),
-    url("/assets/fajar-florist.svg") !important;
+    url("../assets/fajar-florist.svg") !important;
 }
 
 .icon-wrap {
@@ -776,14 +776,6 @@ body {
   height: 64px;
   object-fit: contain;
 }
-
-.occasion-grid a:hover .icon-wrap {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.06);
-  background-color: #f8f9fa;
-}
-
 /* ====== Base (handphone) ====== */
 .t-section {
   background: #f4f4f6; /* abu muda seperti contoh */
@@ -867,13 +859,13 @@ body {
 }
 
 .t-card-title {
-  font-size: 20px;
+  font-size: 14px;
   margin: 6px 0 8px;
-  font-weight: 800;
+  font-weight: 400;
 }
 .t-card-text {
   color: #5f6368;
-  line-height: 1.6;
+  line-height: 1;
   margin: 0 0 18px;
 }
 
@@ -890,7 +882,7 @@ body {
   border: 3px solid #f1f3f5;
 }
 .t-name {
-  font-weight: 700;
+  font-weight: 400;
   color: #222;
 }
 .t-role {
@@ -1047,21 +1039,62 @@ body {
   .item-slab + .item-slab { margin-top: 8px; }
 }
 
-/* Filter bar */
-.filterbar, .filter-dd{ position:relative; overflow:visible; }
-.filterbar .btn-filter{ border-radius:999px; padding:.45rem .9rem; border:1px solid #e3e7ee; background:#fff; }
-.filterbar .dropdown-menu{
-  border-radius:14px; border:1px solid #eef1f6;
-  box-shadow:0 10px 28px rgba(0,0,0,.08);
-  padding:.4rem; z-index:1055; max-height:320px; overflow:auto;
+/* === Filter Bar (Dropdown lama tetap boleh dipakai) === */
+.filterbar, .filter-dd { position: relative; overflow: visible; }
+.filterbar .btn-filter { border-radius: 999px; padding: .45rem .9rem; border: 1px solid #e3e7ee; background: #fff; }
+.filterbar .dropdown-menu {
+  border-radius: 14px; border: 1px solid #eef1f6;
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+  padding: .4rem; z-index: 1055; max-height: 320px; overflow: auto;
+  min-width: 220px;
 }
-.filterbar .dropdown-item{ border-radius:10px; padding:.5rem .75rem; }
-.filterbar .dropdown-item:hover, .filterbar .dropdown-item:focus{ background:#eef2ff; color:#0d6efd; }
+.filterbar .dropdown-item { border-radius: 10px; padding: .5rem .75rem; }
+.filterbar .dropdown-item:hover, .filterbar .dropdown-item:focus { background: #eef2ff; color: #0d6efd; }
+.filterbar .btn-filter:focus { outline: 2px solid #cfe2ff; outline-offset: 2px; }
 
 @media (max-width:576px){
-  .filterbar{ overflow-x:auto; -webkit-overflow-scrolling:touch; gap:.5rem; }
-  .filterbar::-webkit-scrollbar{ display:none; }
+  .filterbar { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: .5rem; }
+  .filterbar::-webkit-scrollbar { display: none; }
 }
+
+/* === Chip/Pill groups (baru) === */
+.fb-chips {
+  display: flex;
+  gap: .5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: .25rem;
+  scroll-snap-type: x proximity;
+}
+.fb-chips::-webkit-scrollbar { height: 6px; }
+.fb-chips::-webkit-scrollbar-thumb { background: rgba(0,0,0,.12); border-radius: 999px; }
+
+.fb-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  padding: .25rem .6rem;
+  border-radius: 999px;
+  font-size: .875rem;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+  scroll-snap-align: start;
+}
+.fb-chip:hover { background: #f8f9fb; }
+.fb-chip[aria-pressed="true"], .fb-chip.active {
+  background: var(--bs-primary-bg-subtle, #e7f1ff);
+  border-color: var(--bs-primary, #0d6efd);
+  box-shadow: 0 0 0 2px rgba(13,110,253,.15) inset;
+}
+.fb-chip:focus { outline: 2px solid rgba(13,110,253,.35); outline-offset: 1px; }
+
+/* Sticky card padding fix (kalau navbar fixed) */
+#filterBar.sticky-top { top: 56px; z-index: 1020; }
+
+/* Optional: spacing grid di bawah filter */
+#catalogGrid { margin-top: .5rem; }
 
 
 

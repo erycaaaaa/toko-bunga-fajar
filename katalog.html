@@ -25,15 +25,19 @@
     <main class="container py-5">
       <h1 class="h4 mb-3">Katalog Bunga</h1>
 
-      <!-- FILTER BAR (Dropdown) -->
-      <div class="d-flex align-items-center gap-2 filterbar flex-wrap">
-        <!-- Kategori -->
-        <div class="dropdown filter-dd" id="ddCategoryWrap">
-          <button class="btn btn-filter dropdown-toggle" type="button"
-                  id="ddCategoryBtn" data-bs-toggle="dropdown" aria-expanded="false">
-            Kategori: <span id="ddCategoryLabel">Semua</span>
+<!-- FILTER BAR – chip/pill, mobile-friendly -->
+<section id="filterBar" class="sticky-top" style="top:56px; z-index:1020;">
+  <div class="card shadow-sm border-0">
+    <div class="card-body py-2">
+      <!-- Bar atas: kategori + reset -->
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <div class="dropdown">
+          <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                  id="fbCategoryBtn" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-grid"></i>
+            <span class="ms-1">Kategori: <strong id="fbCategoryLabel">Semua</strong></span>
           </button>
-          <ul class="dropdown-menu" id="ddCategoryMenu" aria-labelledby="ddCategoryBtn">
+          <ul class="dropdown-menu" aria-labelledby="fbCategoryBtn" id="fbCategoryMenu">
             <li><a class="dropdown-item" href="#" data-category="all">Semua</a></li>
             <li><a class="dropdown-item" href="#" data-category="buket-bunga">Buket Bunga</a></li>
             <li><a class="dropdown-item" href="#" data-category="bunga-tangkai">Bunga Tangkai</a></li>
@@ -42,39 +46,57 @@
           </ul>
         </div>
 
-        <!-- Ukuran (muncul hanya utk Buket Bunga) -->
-        <div class="dropdown filter-dd" id="ddSizeWrap" style="display:none">
-          <button class="btn btn-filter dropdown-toggle" type="button"
-                  id="ddSizeBtn" data-bs-toggle="dropdown" aria-expanded="false">
-            Ukuran: <span id="ddSizeLabel">Semua</span>
-          </button>
-          <ul class="dropdown-menu" id="ddSizeMenu" aria-labelledby="ddSizeBtn">
-            <li><a class="dropdown-item" href="#" data-size="all">Semua</a></li>
-            <li><a class="dropdown-item" href="#" data-size="kecil">Kecil</a></li>
-            <li><a class="dropdown-item" href="#" data-size="sedang">Sedang</a></li>
-            <li><a class="dropdown-item" href="#" data-size="besar">Besar</a></li>
-          </ul>
-        </div>
-
-        <!-- Warna (multi; muncul hanya utk Buket Bunga) -->
-        <div class="dropdown filter-dd" id="ddColorWrap" style="display:none" data-bs-auto-close="outside">
-          <button class="btn btn-filter dropdown-toggle" type="button"
-                  id="ddColorBtn" data-bs-toggle="dropdown" aria-expanded="false">
-            Warna: <span id="ddColorLabel">Semua</span>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="ddColorBtn" style="min-width:240px;">
-            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="merah">Merah</label>
-            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="pink">Pink</label>
-            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="putih">Putih</label>
-            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="jingga">Jingga</label>
-            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="kuning">Kuning</label>
-            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="hijau">Hijau</label>
-            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="biru">Biru</label>
-            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="ungu">Ungu</label>
-            <label class="form-check dropdown-item"><input class="form-check-input me-2 color-chk" type="checkbox" value="hitam">Hitam</label>
-          </div>
-        </div>
+        <button id="fbResetBtn" class="btn btn-sm btn-link text-decoration-none ms-auto">
+          <i class="bi bi-arrow-counterclockwise"></i> Reset
+        </button>
       </div>
+
+      <!-- Buket Bunga -->
+      <div id="fbSizes" class="fb-chips d-none" aria-label="Filter Ukuran">
+        <span class="fb-chip" data-size="all" aria-pressed="true">Semua Ukuran</span>
+        <span class="fb-chip" data-size="kecil">Kecil</span>
+        <span class="fb-chip" data-size="sedang">Sedang</span>
+        <span class="fb-chip" data-size="besar">Besar</span>
+      </div>
+      <div id="fbColors" class="fb-chips d-none mt-1" aria-label="Filter Warna">
+        <span class="fb-chip" data-color="merah">Merah</span>
+        <span class="fb-chip" data-color="pink">Pink</span>
+        <span class="fb-chip" data-color="putih">Putih</span>
+        <span class="fb-chip" data-color="jingga">Jingga</span>
+        <span class="fb-chip" data-color="kuning">Kuning</span>
+        <span class="fb-chip" data-color="hijau">Hijau</span>
+        <span class="fb-chip" data-color="biru">Biru</span>
+        <span class="fb-chip" data-color="ungu">Ungu</span>
+        <span class="fb-chip" data-color="hitam">Hitam</span>
+      </div>
+
+      <!-- Bunga Papan -->
+      <div id="fbSubcats" class="fb-chips d-none" aria-label="Subkategori Bunga Papan">
+        <span class="fb-chip" data-subcat="all" aria-pressed="true">Semua</span>
+        <span class="fb-chip" data-subcat="wedding">Wedding</span>
+        <span class="fb-chip" data-subcat="selamat-sukses">Selamat Sukses</span>
+        <span class="fb-chip" data-subcat="duka-cita">Duka Cita</span>
+        <span class="fb-chip" data-subcat="ulang-tahun">Ulang Tahun</span>
+      </div>
+
+      <!-- Bunga Tangkai -->
+      <div id="fbStemTypes" class="fb-chips d-none" aria-label="Jenis Bunga Tangkai">
+        <span class="fb-chip" data-jenis="all" aria-pressed="true">Semua Jenis</span>
+        <span class="fb-chip" data-jenis="mawar">Mawar</span>
+        <span class="fb-chip" data-jenis="kerisan">Kerisan</span>
+        <span class="fb-chip" data-jenis="lily">Lily</span>
+        <span class="fb-chip" data-jenis="tulip">Tulip</span>
+        <span class="fb-chip" data-jenis="pompom">Pompom</span>
+        <span class="fb-chip" data-jenis="aster">Aster</span>
+        <span class="fb-chip" data-jenis="gompi">Gompi</span>
+        <span class="fb-chip" data-jenis="pikok">Pikok</span>
+        <span class="fb-chip" data-jenis="rotensia">Rotensia</span>
+      </div>
+
+      <div class="small text-muted mt-2" id="fbSummary">Terpilih: Semua</div>
+    </div>
+  </div>
+</section>
 
       <!-- GRID -->
       <div class="row g-3 mt-3" id="catalogGrid"></div>
@@ -84,10 +106,11 @@
     <!-- Footer -->
     <footer id="footer" data-include="./partials/footer.html"></footer>
 
-    <!-- JS order WAJIB -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="./js/partials-loader.js"></script>
     <script defer src="./js/catalog.js"></script>
     <script defer src="./js/filter.js"></script>
+    <script defer src="./js/filter-chips.js"></script> <!-- <= JANGAN lupa -->
+
   </body>
 </html>

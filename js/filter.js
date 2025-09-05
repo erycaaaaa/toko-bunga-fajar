@@ -1,48 +1,64 @@
 // js/filter.js
-document.addEventListener('DOMContentLoaded', () => {
-  const api = window.catalogFilters;          // API dari catalog.js
-  if (!api) return;
+(function(){
+  const catMenu   = document.getElementById('ddCategoryMenu');
+  const catLabel  = document.getElementById('ddCategoryLabel');
 
-  const ddCategoryLabel = document.getElementById('ddCategoryLabel');
-  const ddSizeLabel     = document.getElementById('ddSizeLabel');
-  const ddColorLabel    = document.getElementById('ddColorLabel');
+  const sizeMenu  = document.getElementById('ddSizeMenu');
+  const sizeLabel = document.getElementById('ddSizeLabel');
 
-  // Kategori (single)
-  document.querySelectorAll('#ddCategoryMenu [data-category]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      e.preventDefault();
-      const cat = a.dataset.category;
-      ddCategoryLabel.textContent = a.textContent.trim();
-      api.setCategory(cat);
+  const colorWrap = document.getElementById('ddColorWrap');
+  const colorLabel= document.getElementById('ddColorLabel');
 
-      // reset label jika keluar dari Buket Bunga
-      if (cat !== 'buket-bunga'){
-        ddSizeLabel.textContent  = 'Semua';
-        ddColorLabel.textContent = 'Semua';
-        document.querySelectorAll('#ddColorWrap .color-chk').forEach(c=>c.checked=false);
-      }
-    });
+  const subMenu   = document.getElementById('ddSubCatMenu');   // 👈 NEW
+  const subLabel  = document.getElementById('ddSubCatLabel');   // 👈 NEW
+
+  // Helper label
+  const nice = (s)=> s.split('-').map(x=>x[0].toUpperCase()+x.slice(1)).join(' ');
+
+  // Kategori
+  if (catMenu) catMenu.addEventListener('click', (e)=>{
+    const a = e.target.closest('a[data-category]');
+    if (!a) return;
+    e.preventDefault();
+    const val = a.getAttribute('data-category');
+    catLabel.textContent = (val==='all' ? 'Semua' : nice(val));
+    window.catalogFilters.setCategory(val);
   });
 
-  // Ukuran (single)
-  document.querySelectorAll('#ddSizeMenu [data-size]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      e.preventDefault();
-      const size = a.dataset.size;
-      ddSizeLabel.textContent = a.textContent.trim();
-      api.setSize(size);
-    });
+  // Ukuran
+  if (sizeMenu) sizeMenu.addEventListener('click', (e)=>{
+    const a = e.target.closest('a[data-size]');
+    if (!a) return;
+    e.preventDefault();
+    const val = a.getAttribute('data-size');
+    sizeLabel.textContent = (val==='all' ? 'Semua' : nice(val));
+    window.catalogFilters.setSize(val);
   });
 
   // Warna (multi)
-  const updateColorLabel = ()=>{
-    const n = (api.getState().selectedColors.size) || 0;
-    ddColorLabel.textContent = n ? `${n} dipilih` : 'Semua';
-  };
-  document.querySelectorAll('#ddColorWrap .color-chk').forEach(chk=>{
-    chk.addEventListener('change', ()=>{
-      api.toggleColor(chk.value, chk.checked);
-      updateColorLabel();
+  if (colorWrap){
+    const chks = colorWrap.querySelectorAll('.color-chk');
+    const updateLabel = ()=>{
+      const picked = Array.from(chks).filter(c=>c.checked).map(c=>nice(c.value));
+      colorLabel.textContent = picked.length ? picked.join(', ') : 'Semua';
+    };
+    chks.forEach(chk=>{
+      chk.addEventListener('change', ()=>{
+        window.catalogFilters.toggleColor(chk.value, chk.checked);
+        updateLabel();
+      });
     });
+    updateLabel();
+  }
+
+  // Subkategori Bunga Papan
+  if (subMenu) subMenu.addEventListener('click', (e)=>{
+    const a = e.target.closest('a[data-subcat]');
+    if (!a) return;
+    e.preventDefault();
+    const val = a.getAttribute('data-subcat');
+    subLabel.textContent = (val==='all' ? 'Semua' : nice(val));
+    window.catalogFilters.setSubCategory(val);
   });
-});
+
+})();
