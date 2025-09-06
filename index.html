@@ -28,7 +28,7 @@
     <header data-include="./partials/navbar.html"></header>
 
     <main>
-     <div data-include="./partials/category.html"></div>
+      <div data-include="./partials/category.html"></div>
       <section
         class="hero parallax"
         id="home"
@@ -46,12 +46,10 @@
 
         <div class="hero-content container text-center">
           <span class="badge-soft">Fresh • Handmade • Same-day</span>
-<h1 class="display-title">
-  <span class="line1">Buket & Rangkaian Bunga</span>
-  <span class="line2">Untuk Setiap Momen</span>
-</h1>
-
-
+          <h1 class="display-title">
+            <span class="line1">Buket & Rangkaian Bunga</span>
+            <span class="line2">Untuk Setiap Momen</span>
+          </h1>
           <div class="d-flex gap-2 justify-content-center mb-4">
             <a class="btn btn-hero-soft" href="#produk">Lihat Katalog</a>
           </div>
@@ -107,104 +105,162 @@
               <h2 class="fw-bold" id="judul-produk">Pilihan Terpopuler</h2>
             </div>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-              <div class="col">
-                <div class="card h-100 p-3">
-                  <img
-                    src="./assets/buket-bunga_RoseBuket_besar_5000000.jpg"
-                    class="card-img-top"
-                    alt="Bunga Papan"
-                    loading="lazy"
-                    decoding="async"
-                    style="height: 170px; object-fit: cover"
-                  />
-                  <div
-                    class="card-body text-center"
-                    style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4)"
-                  >
-                    <h5
-                      class="card-title"
-                      style="font-family: 'Times New Roman', serif"
-                    >
-                      Bunga Papan
-                    </h5>
-                  </div>
-                </div>
-              </div>
+            <!-- FILTER BAR – chip/pill, mobile-friendly -->
+            <section
+              id="filterBar"
+              class="sticky-top"
+              style="top: 56px; z-index: 1020"
+            >
+              <div class="card shadow-sm border-0">
+                <div class="card-body py-2">
+                  <!-- Bar atas: kategori + reset -->
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <div class="dropdown">
+                      <button
+                        class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                        type="button"
+                        id="fbCategoryBtn"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="bi bi-grid"></i>
+                        <span class="ms-1"
+                          >Kategori:
+                          <strong id="fbCategoryLabel">Semua</strong></span
+                        >
+                      </button>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="fbCategoryBtn"
+                        id="fbCategoryMenu"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="#" data-category="all"
+                            >Semua</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="#"
+                            data-category="buket-bunga"
+                            >Buket Bunga</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="#"
+                            data-category="bunga-tangkai"
+                            >Bunga Tangkai</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="#"
+                            data-category="bunga-tangan"
+                            >Bunga Tangan</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="#"
+                            data-category="bunga-papan"
+                            >Bunga Papan</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
 
-              <div class="col">
-                <div class="card h-100 p-3">
-                  <img
-                    src="./assets/buket-bunga_BigWhiteLily_besar_6000000.jpg"
-                    class="card-img-top"
-                    alt="Bunga Tangan"
-                    loading="lazy"
-                    decoding="async"
-                    style="height: 170px; object-fit: cover"
-                  />
-                  <div
-                    class="card-body text-center"
-                    style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4)"
-                  >
-                    <h5
-                      class="card-title"
-                      style="font-family: 'Times New Roman', serif"
+                    <button
+                      id="fbResetBtn"
+                      class="btn btn-sm btn-link text-decoration-none ms-auto"
                     >
-                      Bunga Tangan
-                    </h5>
+                      <i class="bi bi-arrow-counterclockwise"></i> Reset
+                    </button>
                   </div>
-                </div>
-              </div>
 
-              <div class="col">
-                <div class="card h-100 p-3">
-                  <img
-                    src="./assets/buket-bunga_LilyRose_besar_5000000.jpg"
-                    class="card-img-top"
-                    alt="Buket Bunga"
-                    loading="lazy"
-                    decoding="async"
-                    style="height: 170px; object-fit: cover"
-                  />
+                  <!-- Buket Bunga -->
                   <div
-                    class="card-body text-center"
-                    style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4)"
+                    id="fbSizes"
+                    class="fb-chips d-none"
+                    aria-label="Filter Ukuran"
                   >
-                    <h5
-                      class="card-title"
-                      style="font-family: 'Times New Roman', serif"
+                    <span class="fb-chip" data-size="all" aria-pressed="true"
+                      >Semua Ukuran</span
                     >
-                      Buket Bunga
-                    </h5>
+                    <span class="fb-chip" data-size="kecil">Kecil</span>
+                    <span class="fb-chip" data-size="sedang">Sedang</span>
+                    <span class="fb-chip" data-size="besar">Besar</span>
                   </div>
-                </div>
-              </div>
+                  <div
+                    id="fbColors"
+                    class="fb-chips d-none mt-1"
+                    aria-label="Filter Warna"
+                  >
+                    <span class="fb-chip" data-color="merah">Merah</span>
+                    <span class="fb-chip" data-color="pink">Pink</span>
+                    <span class="fb-chip" data-color="putih">Putih</span>
+                    <span class="fb-chip" data-color="jingga">Jingga</span>
+                    <span class="fb-chip" data-color="kuning">Kuning</span>
+                    <span class="fb-chip" data-color="hijau">Hijau</span>
+                    <span class="fb-chip" data-color="biru">Biru</span>
+                    <span class="fb-chip" data-color="ungu">Ungu</span>
+                    <span class="fb-chip" data-color="hitam">Hitam</span>
+                  </div>
 
-              <div class="col">
-                <div class="card h-100 p-3">
-                  <img
-                    src="./assets/buket-bunga_RedRose_besar_7000000.jpg"
-                    class="card-img-top"
-                    alt="Bunga"
-                    loading="lazy"
-                    decoding="async"
-                    style="height: 170px; object-fit: cover"
-                  />
+                  <!-- Bunga Papan -->
                   <div
-                    class="card-body text-center"
-                    style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4)"
+                    id="fbSubcats"
+                    class="fb-chips d-none"
+                    aria-label="Subkategori Bunga Papan"
                   >
-                    <h5
-                      class="card-title"
-                      style="font-family: 'Times New Roman', serif"
+                    <span class="fb-chip" data-subcat="all" aria-pressed="true"
+                      >Semua</span
                     >
-                      Bunga
-                    </h5>
+                    <span class="fb-chip" data-subcat="wedding">Wedding</span>
+                    <span class="fb-chip" data-subcat="selamat-sukses"
+                      >Selamat Sukses</span
+                    >
+                    <span class="fb-chip" data-subcat="duka-cita"
+                      >Duka Cita</span
+                    >
+                    <span class="fb-chip" data-subcat="ulang-tahun"
+                      >Ulang Tahun</span
+                    >
+                  </div>
+
+                  <!-- Bunga Tangkai -->
+                  <div
+                    id="fbStemTypes"
+                    class="fb-chips d-none"
+                    aria-label="Jenis Bunga Tangkai"
+                  >
+                    <span class="fb-chip" data-jenis="all" aria-pressed="true"
+                      >Semua Jenis</span
+                    >
+                    <span class="fb-chip" data-jenis="mawar">Mawar</span>
+                    <span class="fb-chip" data-jenis="kerisan">Kerisan</span>
+                    <span class="fb-chip" data-jenis="lily">Lily</span>
+                    <span class="fb-chip" data-jenis="tulip">Tulip</span>
+                    <span class="fb-chip" data-jenis="pompom">Pompom</span>
+                    <span class="fb-chip" data-jenis="aster">Aster</span>
+                    <span class="fb-chip" data-jenis="gompi">Gompi</span>
+                    <span class="fb-chip" data-jenis="pikok">Pikok</span>
+                    <span class="fb-chip" data-jenis="rotensia">Rotensia</span>
+                  </div>
+
+                  <div class="small text-muted mt-2" id="fbSummary">
+                    Terpilih: Semua
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- /row grid -->
+            </section>
+
+            <!-- GRID -->
+            <div class="row g-3 mt-3" id="catalogGrid"></div>
 
             <div class="col-12 text-center mt-4">
               <a href="./katalog.html" class="btn btn-hero-soft"
@@ -223,7 +279,6 @@
       <div data-include="./partials/cta-strip.html"></div>
       <div data-include="./partials/floating-help.html"></div>
       <div data-include="./partials/testimonials.html"></div>
- 
     </main>
 
     <!-- Partial: Footer -->
