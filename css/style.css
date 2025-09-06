@@ -1432,55 +1432,37 @@ small,
   }
 }
 
-/* ==== MOBILE HOTFIX — paste PALING BAWAH ==== */
 
+/* === MOBILE POLISH (≤576px) — paste PALING BAWAH === */
 @media (max-width: 576px){
-  /* Matikan dekor besar yang bikin layout kacau */
-  section#home.hero::after{ display:none !important; }
 
-  /* Kontainer hero lebih pendek & rapat */
-  section#home.hero{
-    min-height:64vh !important;
-    padding:16px 0 12px !important;
-    gap:8px !important;
-  }
+  .hero.parallax{ background-attachment: scroll !important; }
+  section#home.hero{ min-height: 60vh !important; padding: 12px 0 14px !important; gap: 6px !important; }
 
-  section#home .logo-landingpage{
-    position:static !important;
-    width:140px !important;
-    margin:4px auto 6px !important;
-    top:auto !important; right:auto !important;
-  }
 
-  section#home .badge-soft{
-    position:static !important;
-    display:inline-block !important;
-    transform:none !important;
-    font-size:12px !important;
-    padding:3px 8px !important;
-    margin-bottom:6px !important;
-  }
+  section#home.hero::after{ display: none !important; }
 
+  section#home .logo-landingpage{ position: static !important; width: 120px !important; margin: 2px auto 6px !important; }
+  section#home .badge-soft{ position: static !important; font-size: .64rem !important; padding: .16rem .44rem !important; margin-bottom: .25rem !important; }
 
   section#home .display-title{
-    position:static !important;
-    top:auto !important; left:auto !important; transform:none !important;
-    font-size:22px !important; line-height:1.18 !important;
-    margin:6px auto 10px !important; max-width:90vw !important;
-    letter-spacing:0 !important;
+    position: static !important; top:auto !important; left:auto !important; transform:none !important;
+    font-size: clamp(16px, 5.2vw, 21px) !important; line-height: 1.15 !important;
+    margin: .1rem 0 .45rem !important; max-width: 92vw !important; letter-spacing: 0 !important;
+    text-shadow: 0 2px 6px rgba(0,0,0,.22) !important;
   }
-  section#home .display-title .line1,
-  section#home .display-title .line2{ white-space:normal !important; }
+  section#home .display-title .line1, section#home .display-title .line2{ white-space: normal !important; }
 
-
-  section#home .hero-content .btn{
-    font-size:.8rem !important; padding:.5rem .9rem !important;
-  }
-  section#home .hero-social a{ font-size:22px !important; }
+  /* CTA & ikon sosial lebih kecil */
+  section#home .hero-content{ padding: 0 .75rem !important; }
+  section#home .hero-content .btn{ font-size: .78rem !important; padding: .48rem .85rem !important; border-radius: 999px !important; }
+  section#home .hero-social{ margin-top: .3rem !important; gap: .75rem !important; }
+  section#home .hero-social a{ font-size: 20px !important; }
 }
 
-/* Tablet kecil */
+/* Tablet kecil (577–768px) */
 @media (min-width:577px) and (max-width:768px){
-  section#home .display-title{ font-size:26px !important; }
-  section#home .hero-social a{ font-size:26px !important; }
+  section#home.hero{ min-height: 66vh !important; }
+  section#home .display-title{ font-size: clamp(18px, 5.4vw, 24px) !important; }
+  section#home .hero-social a{ font-size: 22px !important; }
 }
