@@ -127,24 +127,17 @@
   gap: 0.5rem;
 }
 /* ===== HERO (background utama + dekor statis) ===== */
-.hero {
+.hero{
   position: relative;
-  min-height: 92vh;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  overflow: hidden;
-
-  /* [atas] BG-1 (dekor) → shadow penuh → BG-2 (utama) [bawah] */
-  background: right 80% top 6% / 1920px auto no-repeat,
-    linear-gradient(
-      180deg,
-      rgba(175, 175, 175, 0.35) 0%,
-      rgba(175, 175, 175, 0.35) 100%
-    ),
-    url("../assets/bg2.svg") center/cover no-repeat;
+  min-height: 100svh;              /* full tinggi layar (safe-area aware) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;     /* start, nanti di-offset pakai padding */
+  text-align: center;
+  padding-bottom: 24px;
+  gap: clamp(8px, 3.2vw, 28px);    /* jarak antar elemen yang stabil */
 }
-
 .hero::after {
   content: "";
   position: absolute;
@@ -218,30 +211,49 @@
 .asset-wrap {
   position: absolute;
   z-index: 3;
-}
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* jarak antar elemen yang responsif */
-  gap: clamp(12px, 3vw, 32px);
-}
-.logo-landingpage {
-  position: relative;        /* supaya z-index bekerja */
-  z-index: 50;
-  margin: 0;    
-  top: 6.5rem;              /* hindari persen vertikal */
-  /* contoh ukuran responsif */
-  max-width: min(320px, 60vw);
+}/* offset hero dari bawah header + kategori */
+.hero--with-topbars{
+  padding-top: calc(var(--nav-h) + var(--catbar-h) + 12px);
 }
 
-.hero-content {
-  position: relative;
+/* Logo */
+.logo-landingpage{
+  position: relative;  /* agar z-index bekerja */
+  z-index: 1;
+  margin: 0 auto;
+  width: clamp(120px, 42vw, 260px);   /* skala responsif */
+  max-width: 65%;
+}
+
+/* Tagline chip di bawah logo */
+.hero-chip{
+  margin: 0 auto;
+  padding: .4rem .9rem;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+/* Judul H1 */
+.hero-content h1{
   margin: 0;
-  /* kalau ingin sedikit naik/overlap di layar lebar */
-  transform: translateY(clamp(0px, -2vw, -16px));
+  font-size: clamp(22px, 7vw, 44px);  /* kecilkan di HP */
+  line-height: 1.12;
+  letter-spacing: .3px;
+  text-wrap: balance;                 /* bagi baris lebih rapi (browser modern) */
 }
 
+/* Tombol/CTA */
+.hero-content .btn{
+  margin-top: clamp(6px, 2.2vw, 14px);
+}
+
+/* ====== Mobile tuning ====== */
+@media (max-width: 640px){
+  /* hilangkan transform atau margin negatif apa pun */
+  .hero-content{ transform:none }
+  /* beri ruang ekstra agar tidak ketutup FAB/chat bubble */
+  .hero{ padding-bottom: 84px; }
+}
 /* Mobile: rapat & rapi */
 @media (max-width: 640px) {
   .logo-landingpage {

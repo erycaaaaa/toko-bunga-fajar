@@ -40,49 +40,41 @@
            m === 'pikok' ? 'Pikok' :
            m === 'rotensia' ? 'Rotensia' : 'Semua';
   };
+const productCard = (p) => {
+  const sizeLabel  = p.size  ? ` • Ukuran: ${p.size[0].toUpperCase() + p.size.slice(1)}` : '';
+  const colorLabel = p.color ? ` • Warna: ${p.color}` : '';
+  const jenisVal   = (p.jenis || p.species || p['Jenis Bunga'] || '').toString().toLowerCase().trim();
 
-  // Card template
-  const productCard = (p) => {
-    const sizeLabel  = p.size  ? ` • Ukuran: ${p.size[0].toUpperCase() + p.size.slice(1)}` : '';
-    const colorLabel = p.color ? ` • Warna: ${p.color}` : '';
+  const message = encodeURIComponent(
+    `Haloo kak Fajar, saya ingin pesan *${p.name}* 🌷\n` +
+    `Kategori: ${labelCategory(p.category)}` +
+    `${p.subCategory ? `\nSubkategori: ${labelSubCategory(p.subCategory)}` : ''}` +
+    `${jenisVal ? `\nJenis: ${labelJenis(jenisVal)}` : ''}` +
+    `${p.size ? `\nUkuran: ${p.size}` : ''}${p.color ? `\nWarna: ${p.color}` : ''}\n` +
+    `Harga: Rp ${p.price.toLocaleString('id-ID')}\n` +
+    `${window.location.origin}/${(p.img || '').replace(/^\//,'')}`
+  );
 
-    // baca jenis: dukung beberapa kemungkinan key
-    const jenisVal = (p.jenis || p.species || p['Jenis Bunga'] || '').toString().toLowerCase().trim();
-
-    const subLabelPapan = (p.category === 'bunga-papan' && p.subCategory)
-      ? ` • Sub: ${labelSubCategory(p.subCategory)}`
-      : '';
-
-    const jenisLabelTangkai = (p.category === 'bunga-tangkai' && jenisVal)
-      ? ` • Jenis: ${labelJenis(jenisVal)}`
-      : '';
-
-    const message = encodeURIComponent(
-      `Halo kak, saya ingin pesan *${p.name}* 🌷\n` +
-      `Kategori: ${labelCategory(p.category)}` +
-      `${p.subCategory ? `\nSubkategori: ${labelSubCategory(p.subCategory)}` : ''}` +
-      `${jenisVal ? `\nJenis: ${labelJenis(jenisVal)}` : ''}` +
-      `${p.size ? `\nUkuran: ${p.size}` : ''}${p.color ? `\nWarna: ${p.color}` : ''}\n` +
-      `Harga: Rp ${p.price.toLocaleString('id-ID')}\n` +
-      `${window.location.origin}/${(p.img || '').replace(/^\//,'')}`
-    );
-return `
+  return `
   <div class="col-6 col-md-4 col-lg-3 catalog-item"
        data-category="${p.category}"${p.subCategory ? ` data-subcat="${p.subCategory}"` : ''}${jenisVal ? ` data-jenis="${jenisVal}"` : ''}${p.size ? ` data-size="${p.size}"` : ''}${p.color ? ` data-color="${String(p.color).toLowerCase()}"` : ''}>
-    <div class="card h-100">
+    <!-- jadikan card flex kolom -->
+    <div class="card h-100 d-flex flex-column">
       <img src="${(p.img || '').replace(/^\//,'')}" class="card-img-top" alt="${p.name}" loading="lazy">
-      <div class="card-body">
+
+      <!-- body juga flex kolom agar bar bawah bisa didorong ke bawah -->
+      <div class="card-body d-flex flex-column">
         <h5 class="card-title">${p.name}</h5>
         <p class="card-text small text-muted mb-2">
           Kategori: ${labelCategory(p.category)}${
             p.category === 'bunga-papan' && p.subCategory ? ` • Sub: ${labelSubCategory(p.subCategory)}` : ''
           }${
             p.category === 'bunga-tangkai' && jenisVal ? ` • Jenis: ${labelJenis(jenisVal)}` : ''
-          }${p.size ? ` • Ukuran: ${p.size[0].toUpperCase() + p.size.slice(1)}` : ''}${
-            p.color ? ` • Warna: ${p.color}` : ''
-          }
+          }${sizeLabel}${colorLabel}
         </p>
-        <div class="d-flex justify-content-between align-items-center">
+
+        <!-- bar harga + tombol: selalu nempel bawah -->
+        <div class="mt-auto pt-2 d-flex justify-content-between align-items-center border-top">
           <span class="fw-semibold">${idr(p.price)}</span>
           <a class="btn btn-sm btn-primary" target="_blank" rel="noopener"
              href="https://wa.me/6285798526834?text=${message}">Pesan</a>
@@ -90,8 +82,8 @@ return `
       </div>
     </div>
   </div>`;
+};
 
-  };
 
   const render = (list) => { grid.innerHTML = list.map(productCard).join(''); };
 
@@ -170,4 +162,6 @@ return `
       grid.innerHTML = `<div class="col-12"><div class="alert alert-danger">
         Gagal memuat <code>data/catalog.json</code> — ${String(err)}</div></div>`;
     });
+
+
 })();
