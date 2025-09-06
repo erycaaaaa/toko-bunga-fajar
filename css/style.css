@@ -385,14 +385,35 @@
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
 }
 .badge-soft {
-  position: absolute; /* supaya top bekerja */
+  position: absolute;
   background: linear-gradient(90deg, var(--leaf-1), var(--leaf-2));
   color: #00000077;
   border-radius: 999px;
-  padding: 0.15rem 0.1rem;
-  top: -7.5rem;          /* jarak dari atas container */
+  padding: 0.15rem 0.6rem; /* padding lebih proporsional */
+  top: -7.5rem;
   right: 22rem;
   font-size: 0.85rem;
+  white-space: nowrap; /* supaya teks satu baris */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .badge-soft {
+    top: -7.5rem;    
+    right: 7.5rem;       
+    font-size: 0.75rem; 
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .badge-soft {
+    top: -3rem;
+    right: 50%;
+    transform: translateX(50%); 
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+  }
 }
 
 /* ===== CTA STRIP ===== */
