@@ -1433,37 +1433,33 @@ small,
 }
 
 
-/* ==== FINAL MOBILE POLISH (paste paling bawah) ==== */
+/* ===== FINAL PATCH — letakkan PALING BAWAH file ===== */
 
-/* HP kecil ≤576px */
+/* HP ≤576px */
 @media (max-width: 576px) {
-  /* matikan fixed di mobile biar smooth */
-  .hero.parallax { background-attachment: scroll !important; }
-
-  /* background dekor jangan kebesaran */
-  .hero::after {
-    background-size: clamp(260px, 65vw, 480px) !important;
-    background-position: right 50% top 10% !important;
-    animation: none !important; /* opsional: hemat performa */
+  /* latar hero jangan super besar di HP */
+  section#home.hero::after{
+    background-size: clamp(280px, 62vw, 480px) !important;
+    background-position: center 10% !important;
+    animation: none !important;       
   }
 
-  .hero{
+  section#home.hero{
     min-height: 66vh !important;
     gap: 6px !important;
     padding-bottom: 12px !important;
   }
 
-  /* logo lebih kecil */
-  .logo-landingpage{
+  /* logo mengecil */
+  section#home .logo-landingpage{
     width: clamp(90px, 38vw, 140px) !important;
     top: -0.5rem !important;
     right: 0 !important;
     margin: 0 auto 6px !important;
   }
 
-  /* badge hero – kecil & inline */
-  .hero .hero-badge,
-  .hero .badge-soft{
+  /* badge hero kecil & inline */
+  section#home .badge-soft{
     position: static !important;
     transform: none !important;
     display: inline-block !important;
@@ -1472,27 +1468,37 @@ small,
     margin-bottom: .25rem !important;
   }
 
-  /* judul – lepas absolute, kecilkan */
-  .hero .display-title{
-    position: static !important;
-    top: auto !important; left: auto !important; transform: none !important;
+  /* === KUNCI UTAMA: lepas absolute judul di HP === */
+  section#home .display-title{
+    position: static !important;     
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
     font-size: clamp(16px, 5.4vw, 22px) !important;
     line-height: 1.15 !important;
     margin: .15rem 0 .5rem !important;
     max-width: 90vw !important;
+    letter-spacing: 0 !important;    
+    text-shadow: 0 3px 10px rgba(0,0,0,.25) !important;
   }
-  .hero .display-title .line1,
-  .hero .display-title .line2{ white-space: normal !important; }
+  section#home .display-title .line1,
+  section#home .display-title .line2{
+    white-space: normal !important;  
+  }
 
-  /* CTA + ikon sosial lebih kecil */
-  .hero-content .btn{ font-size: .78rem !important; padding: .48rem .85rem !important; }
-  .hero-social{ margin-top: .35rem !important; }
-  .hero-social a{ font-size: 22px !important; } /* kalahkan inline 45px */
+  /* CTA dan ikon sosial */
+  section#home .hero-content .btn{
+    font-size: .78rem !important;
+    padding: .48rem .85rem !important;
+  }
+  section#home .hero-social a{
+    font-size: 22px !important;    
+  }
 }
 
 /* Tablet kecil 577–768px */
 @media (min-width: 577px) and (max-width: 768px){
-  .hero::after{ background-size: clamp(380px, 48vw, 620px) !important; }
-  .hero .display-title{ font-size: clamp(20px, 5.8vw, 28px) !important; }
-  .hero-social a{ font-size: 26px !important; }
+  section#home.hero::after{ background-size: clamp(380px, 48vw, 620px) !important; }
+  section#home .display-title{ font-size: clamp(20px, 5.8vw, 28px) !important; }
+  section#home .hero-social a{ font-size: 26px !important; }
 }
