@@ -1431,3 +1431,43 @@ small,
     left: 5px; /* kiri di layar kecil */
   }
 }
+
+
+/* ===== FINAL MOBILE OVERRIDES (letakkan PALING AKHIR) ===== */
+@media (max-width: 576px) {
+  .hero{ min-height:70vh !important; gap:6px !important; padding-bottom:12px !important; }
+
+  /* Logo */
+  .logo-landingpage{
+    width: clamp(96px, 42vw, 150px) !important;
+    top:-0.75rem !important; right:0 !important; margin:0 auto 6px !important;
+  }
+
+  /* Badge khusus hero – jangan absolut di HP */
+  .hero .hero-badge{
+    position: static !important;
+    transform: none !important;
+    display: inline-block !important;
+    font-size:.68rem !important; padding:.18rem .48rem !important;
+    margin-bottom:.25rem !important;
+  }
+
+  /* Judul – lepas absolute di HP */
+  .hero .display-title{
+    position: static !important; top:auto !important; left:auto !important; transform:none !important;
+    font-size: clamp(18px, 6.2vw, 26px) !important; line-height:1.18 !important;
+    margin:0 0 .5rem !important; max-width:90vw !important;
+  }
+  .hero .display-title .line1,
+  .hero .display-title .line2{ white-space: normal !important; }
+
+  /* Tombol & ikon sosial */
+  .hero-content .btn{ font-size:.82rem !important; padding:.5rem .9rem !important; }
+  .hero-social a{ font-size:24px !important; } /* override inline 45px */
+}
+
+/* HP sangat kecil */
+@media (max-width: 400px){
+  .hero .display-title{ font-size: clamp(17px, 6.6vw, 24px) !important; }
+  .hero-social a{ font-size:22px !important; }
+}
