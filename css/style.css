@@ -126,9 +126,17 @@
   scrollbar-width: none; 
   gap: 0.5rem;
   padding: 0.25rem 0.75rem;
+  display: flex; 
+  flex-wrap: nowrap !important; 
 }
 .kategori-scroll::-webkit-scrollbar {
   display: none;
+}
+
+@media (min-width: 768px){
+  .kategori-scroll{
+    flex-wrap: wrap !important;
+  }
 }
 
 .kategori-scroll .nav-item {
